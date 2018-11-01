@@ -1,0 +1,35 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'ProvisioningApplication'
+version = '0.0.1-SNAPSHOT'
+
+description = """ProvisioningApplication"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+
+
+
+repositories {
+        
+     //maven { url "http://central" }
+     
+     mavenCentral()
+}
+dependencies {
+    //compile group: 'SemanticHubMS', name: 'SemanticHubMS', version:'0.0.1-SNAPSHOT'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'2.0.4.RELEASE'
+    //compile group: 'javax.servlet.jsp.jstl', name: 'javax.servlet.jsp.jstl-api', version:'1.2.1'
+    compile group: 'taglibs', name: 'standard', version:'1.1.2'
+        testCompile group: 'junit', name: 'junit', version:'3.8.1'
+        
+    compile files('/SemanticHubMS/build/libs/SemanticHubMS-0.0.1-SNAPSHOT.jar')
+    
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'2.0.4.RELEASE'
+    compileOnly group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version:'8.5.32'
+}

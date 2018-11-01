@@ -10,7 +10,11 @@ public class PropertyUtil {
 	private static Properties prop;
 	static {
 		prop = new Properties();
-		try (InputStream input = new FileInputStream("src/main/resources/application.properties")) {
+		
+		
+		try (InputStream input = new FileInputStream("src/main/resources/application.properties")) 
+		
+		{
 			// load a properties file
 			prop.load(input);
 		} catch (IOException ex) {
